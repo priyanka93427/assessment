@@ -1,0 +1,18 @@
+{
+    "development": {
+        "PORT": 7000,
+        "MONGODB_URI": "mongodb+srv://priyankakri8893:8DX39VAJBvKPQmX0@priyankakumari.uvh8zli.mongodb.net/assessment",
+        "secret_token": "itissecrettoken",
+        "crypto_secret_key":"assessmentcryptosecretkey",
+        "limit": 20,
+        "runUsingCluster":false 
+    },
+    "prod": {
+        "PORT": 7000,
+        "MONGODB_URI": "mongodb+srv://priyankakri8893:8DX39VAJBvKPQmX0@priyankakumari.uvh8zli.mongodb.net/assessment",
+        "secret_token": "itissecrettoken",
+        "crypto_secret_key":"assessmentcryptosecretkey",
+        "limit": 20,
+        "runUsingCluster":false 
+        }
+}
