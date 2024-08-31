@@ -12,6 +12,7 @@ npm install
 
 To start the teacher server:
 [Teacher Server Path](./src/app/modules/teacher/server.js)
+[Teacher Server Live Url](https://assessment-teacher.onrender.com/)
 
 1. Navigate to the teacher server directory:
 
@@ -25,6 +26,7 @@ To start the teacher server:
 
 To start the student server:
 [Student Server Path](./src/app/modules/student/server.js)
+[Student Server Live Url](https://assessment-student.onrender.com/)
 
 1. Navigate to the student server directory:
 
