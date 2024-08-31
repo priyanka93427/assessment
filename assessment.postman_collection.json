@@ -1,0 +1,1295 @@
+{
+	"info": {
+		"_postman_id": "9c1627a8-e7ec-4518-aa7c-c9e3f5ce2889",
+		"name": "assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27008823"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "sendOtp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Priya kumari\",\r\n  \"email\": \"priya323@gmail.com\",\r\n  \"phone\": \"9999999999\",\r\n  \"countryCode\": 91,\r\n  \"roleId\": 1,\r\n  \"password\": \"Password@123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/user/sendOTP",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"user",
+								"sendOTP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verifyOTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"phone\": \"9999999999\",\r\n  \"otp\": 1012\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/user/verifyOTP",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"user",
+								"verifyOTP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"emailOrPhone\": \"8863970519\",\r\n  \"password\": \"Password@123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "questionBank",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjQ1ODIzMDgsImV4cCI6MTcyNzE3NDMwOH0.KvWyDpN-MklI7JVTQ9e9D_6c4FTIDo9mxmGrPO37Nz0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"question\": \"What is the boiling point of water in Celsius?\",\r\n  \"type\": \"multiple-choice\",\r\n  \"difficulty\": \"easy\",\r\n  \"subject\": \"Science\",\r\n  \"category\": \"Physics\",\r\n  \"tags\": [\"Temperature\", \"Physics\"],\r\n  \"options\": [\"90°C\", \"100°C\", \"110°C\", \"120°C\"],\r\n  \"correctAnswer\": \"100°C\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/question/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"question",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjQ1ODIzMDgsImV4cCI6MTcyNzE3NDMwOH0.KvWyDpN-MklI7JVTQ9e9D_6c4FTIDo9mxmGrPO37Nz0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"question\": \"What is the boiling point of water in Celsius?abc\",\r\n  \"type\": \"multiple-choice\",\r\n  \"difficulty\": \"\",\r\n  \"subject\": \"\",\r\n  \"category\": \"Physics\",\r\n  \"tags\": [\"Temperature\", \"Physics\"],\r\n  \"options\": [],\r\n  \"correctAnswer\": \"\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/question/update?id=66cb0aa26c1db7863751ab0a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"question",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66cb0aa26c1db7863751ab0a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjQ1ODIzMDgsImV4cCI6MTcyNzE3NDMwOH0.KvWyDpN-MklI7JVTQ9e9D_6c4FTIDo9mxmGrPO37Nz0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tags\": \"Capital,Europe\",\r\n    \"type\": \"multiple-choice\",\r\n    \"difficulty\": \"easy\",\r\n    \"subject\": \"Geography\",\r\n    \"category\": \"Capitals\",\r\n    \"key\": \"Europe\",\r\n    \"page\": 1,\r\n    \"fromDate\": \"2024-08-25\",\r\n    \"toDate\": \"2024-08-30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/question/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"question",
+								"get"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66cb0bd135ab5c1ba711ec91",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "exportQue",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjQ1ODIzMDgsImV4cCI6MTcyNzE3NDMwOH0.KvWyDpN-MklI7JVTQ9e9D_6c4FTIDo9mxmGrPO37Nz0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tags\": \"Capital,Europe\",\r\n    \"type\": \"multiple-choice\",\r\n    \"difficulty\": \"easy\",\r\n    \"subject\": \"Geography\",\r\n    \"category\": \"Capitals\",\r\n    \"key\": \"Europe\",\r\n    \"page\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/question/exportQue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"question",
+								"exportQue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "importQue",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjQ1ODIzMDgsImV4cCI6MTcyNzE3NDMwOH0.KvWyDpN-MklI7JVTQ9e9D_6c4FTIDo9mxmGrPO37Nz0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"questionList\": [\r\n        {\r\n            \"question\": \"What is the boiling point of water in Celsius?abc\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Science\",\r\n            \"category\": \"Physics\",\r\n            \"tags\": [\r\n                \"Temperature\",\r\n                \"Physics\"\r\n            ],\r\n            \"options\": [\r\n                \"90°C\",\r\n                \"100°C\",\r\n                \"110°C\",\r\n                \"120°C\"\r\n            ],\r\n            \"correctAnswer\": \"100°C\"\r\n        },\r\n        {\r\n            \"question\": \"What is the capital of France?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Geography\",\r\n            \"category\": \"Capitals\",\r\n            \"tags\": [\r\n                \"Europe\",\r\n                \"Capital\"\r\n            ],\r\n            \"options\": [\r\n                \"Paris\",\r\n                \"Berlin\",\r\n                \"Rome\",\r\n                \"Madrid\"\r\n            ],\r\n            \"correctAnswer\": \"Paris\"\r\n        },\r\n        {\r\n            \"question\": \"What is the capital of Japan?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Geography\",\r\n            \"category\": \"Capitals\",\r\n            \"tags\": [\r\n                \"Asia\",\r\n                \"Capital\"\r\n            ],\r\n            \"options\": [\r\n                \"Tokyo\",\r\n                \"Beijing\",\r\n                \"Seoul\",\r\n                \"Bangkok\"\r\n            ],\r\n            \"correctAnswer\": \"Tokyo\"\r\n        },\r\n        {\r\n            \"question\": \"What is 2 + 2?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Mathematics\",\r\n            \"category\": \"Basic Arithmetic\",\r\n            \"tags\": [\r\n                \"Addition\",\r\n                \"Math\"\r\n            ],\r\n            \"options\": [\r\n                \"3\",\r\n                \"4\",\r\n                \"5\",\r\n                \"6\"\r\n            ],\r\n            \"correctAnswer\": \"4\"\r\n        },\r\n        {\r\n            \"question\": \"Which planet is known as the Red Planet?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Science\",\r\n            \"category\": \"Astronomy\",\r\n            \"tags\": [\r\n                \"Planets\",\r\n                \"Space\"\r\n            ],\r\n            \"options\": [\r\n                \"Mars\",\r\n                \"Venus\",\r\n                \"Jupiter\",\r\n                \"Saturn\"\r\n            ],\r\n            \"correctAnswer\": \"Mars\"\r\n        },\r\n        {\r\n            \"question\": \"What is the largest mammal in the world?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Science\",\r\n            \"category\": \"Biology\",\r\n            \"tags\": [\r\n                \"Animals\",\r\n                \"Biology\"\r\n            ],\r\n            \"options\": [\r\n                \"Elephant\",\r\n                \"Blue Whale\",\r\n                \"Giraffe\",\r\n                \"Hippopotamus\"\r\n            ],\r\n            \"correctAnswer\": \"Blue Whale\"\r\n        },\r\n        {\r\n            \"question\": \"Who wrote 'Romeo and Juliet'?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Literature\",\r\n            \"category\": \"Authors\",\r\n            \"tags\": [\r\n                \"Shakespeare\",\r\n                \"Literature\"\r\n            ],\r\n            \"options\": [\r\n                \"William Shakespeare\",\r\n                \"Mark Twain\",\r\n                \"Charles Dickens\",\r\n                \"Ernest Hemingway\"\r\n            ],\r\n            \"correctAnswer\": \"William Shakespeare\"\r\n        },\r\n        {\r\n            \"question\": \"What is the boiling point of water in Celsius?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Science\",\r\n            \"category\": \"Physics\",\r\n            \"tags\": [\r\n                \"Temperature\",\r\n                \"Physics\"\r\n            ],\r\n            \"options\": [\r\n                \"90°C\",\r\n                \"100°C\",\r\n                \"110°C\",\r\n                \"120°C\"\r\n            ],\r\n            \"correctAnswer\": \"100°C\"\r\n        },\r\n        {\r\n            \"question\": \"What is the boiling point of water in Celsius?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Science\",\r\n            \"category\": \"Physics\",\r\n            \"tags\": [\r\n                \"Temperature\",\r\n                \"Physics\"\r\n            ],\r\n            \"options\": [\r\n                \"90°C\",\r\n                \"100°C\",\r\n                \"110°C\",\r\n                \"120°C\"\r\n            ],\r\n            \"correctAnswer\": \"100°C\"\r\n        },\r\n        {\r\n            \"question\": \"What is the boiling point of water in Celsius?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Science\",\r\n            \"category\": \"Physics\",\r\n            \"tags\": [\r\n                \"Temperature\",\r\n                \"Physics\"\r\n            ],\r\n            \"options\": [\r\n                \"90°C\",\r\n                \"100°C\",\r\n                \"110°C\",\r\n                \"120°C\"\r\n            ],\r\n            \"correctAnswer\": \"100°C\"\r\n        },\r\n        {\r\n            \"question\": \"What is the boiling point of water in Celsius?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Science\",\r\n            \"category\": \"Physics\",\r\n            \"tags\": [\r\n                \"Temperature\",\r\n                \"Physics\"\r\n            ],\r\n            \"options\": [\r\n                \"90°C\",\r\n                \"100°C\",\r\n                \"110°C\",\r\n                \"120°C\"\r\n            ],\r\n            \"correctAnswer\": \"100°C\"\r\n        },\r\n        {\r\n            \"question\": \"What is the boiling point of water in Celsius?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Science\",\r\n            \"category\": \"Physics\",\r\n            \"tags\": [\r\n                \"Temperature\",\r\n                \"Physics\"\r\n            ],\r\n            \"options\": [\r\n                \"90°C\",\r\n                \"100°C\",\r\n                \"110°C\",\r\n                \"120°C\"\r\n            ],\r\n            \"correctAnswer\": \"100°C\"\r\n        },\r\n        {\r\n            \"question\": \"What is the boiling point of water in Celsius?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Science\",\r\n            \"category\": \"Physics\",\r\n            \"tags\": [\r\n                \"Temperature\",\r\n                \"Physics\"\r\n            ],\r\n            \"options\": [\r\n                \"90°C\",\r\n                \"100°C\",\r\n                \"110°C\",\r\n                \"120°C\"\r\n            ],\r\n            \"correctAnswer\": \"100°C\"\r\n        },\r\n        {\r\n            \"question\": \"What is the boiling point of water in Celsius?abc\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Science\",\r\n            \"category\": \"Physics\",\r\n            \"tags\": [\r\n                \"Temperature\",\r\n                \"Physics\"\r\n            ],\r\n            \"options\": [\r\n                \"90°C\",\r\n                \"100°C\",\r\n                \"110°C\",\r\n                \"120°C\"\r\n            ],\r\n            \"correctAnswer\": \"100°C\"\r\n        },\r\n        {\r\n            \"question\": \"What is the capital of France?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Geography\",\r\n            \"category\": \"Capitals\",\r\n            \"tags\": [\r\n                \"Europe\",\r\n                \"Capital\"\r\n            ],\r\n            \"options\": [\r\n                \"Paris\",\r\n                \"Berlin\",\r\n                \"Rome\",\r\n                \"Madrid\"\r\n            ],\r\n            \"correctAnswer\": \"Paris\"\r\n        },\r\n        {\r\n            \"question\": \"What is the capital of Japan?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Geography\",\r\n            \"category\": \"Capitals\",\r\n            \"tags\": [\r\n                \"Asia\",\r\n                \"Capital\"\r\n            ],\r\n            \"options\": [\r\n                \"Tokyo\",\r\n                \"Beijing\",\r\n                \"Seoul\",\r\n                \"Bangkok\"\r\n            ],\r\n            \"correctAnswer\": \"Tokyo\"\r\n        },\r\n        {\r\n            \"question\": \"What is 2 + 2?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Mathematics\",\r\n            \"category\": \"Basic Arithmetic\",\r\n            \"tags\": [\r\n                \"Addition\",\r\n                \"Math\"\r\n            ],\r\n            \"options\": [\r\n                \"3\",\r\n                \"4\",\r\n                \"5\",\r\n                \"6\"\r\n            ],\r\n            \"correctAnswer\": \"4\"\r\n        },\r\n        {\r\n            \"question\": \"Which planet is known as the Red Planet?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Science\",\r\n            \"category\": \"Astronomy\",\r\n            \"tags\": [\r\n                \"Planets\",\r\n                \"Space\"\r\n            ],\r\n            \"options\": [\r\n                \"Mars\",\r\n                \"Venus\",\r\n                \"Jupiter\",\r\n                \"Saturn\"\r\n            ],\r\n            \"correctAnswer\": \"Mars\"\r\n        },\r\n        {\r\n            \"question\": \"What is the largest mammal in the world?\",\r\n            \"type\": \"multiple-choice\",\r\n            \"difficulty\": \"easy\",\r\n            \"subject\": \"Science\",\r\n            \"category\": \"Biology\",\r\n            \"tags\": [\r\n                \"Animals\",\r\n                \"Biology\"\r\n            ],\r\n            \"options\": [\r\n                \"Elephant\",\r\n                \"Blue Whale\",\r\n                \"Giraffe\",\r\n                \"Hippopotamus\"\r\n            ],\r\n            \"correctAnswer\": \"Blue Whale\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/question/importQue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"question",
+								"importQue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteQue",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjQ1ODIzMDgsImV4cCI6MTcyNzE3NDMwOH0.KvWyDpN-MklI7JVTQ9e9D_6c4FTIDo9mxmGrPO37Nz0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/question/deleteQue?id=66cb0bd135ab5c1ba711ec91",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"question",
+								"deleteQue"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66cb0bd135ab5c1ba711ec91"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "assessment",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"emailOrPhone\": \"8863970519\",\n   \"password\": \"Password@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjQ3MzQ4NzYsImV4cCI6MTcyNzMyNjg3Nn0.OKQVIF-JCVhR3pAWRjm2866vji80caDIPDuTojPWIVw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Basic Math Quiz\",\n    \"type\": \"quiz\",\n    \"questionType\": \"multiple-choice\",\n    \"questions\": [\n        {\n            \"question\": \"What is 2 + 2?\",\n            \"options\": [\n                \"3\",\n                \"4\",\n                \"5\",\n                \"6\"\n            ],\n            \"correctAnswer\": \"4\",\n            \"image\": \"math_question_image.png\",\n            \"video\": \"math_explanation_video.mp4\",\n            \"marks\": 5\n        },\n        {\n            \"question\": \"What is the square root of 16?\",\n            \"options\": [\n                \"2\",\n                \"4\",\n                \"8\",\n                \"6\"\n            ],\n            \"correctAnswer\": \"4\",\n            \"image\": \"\",\n            \"video\": \"\",\n            \"marks\": 5\n        },\n        {\n            \"marks\": 5,\n            \"questionBankId\": \"66cb0aa26c1db7863751ab0a\"\n        }\n    ],\n    \"instructions\": [\n        \"You have 30 minutes to complete the quiz.\",\n        \"Each correct answer will give you 5 marks.\"\n    ],\n    \"timeLimit\": 30,\n    \"attemptsAllowed\": 1,\n    \"totalMarks\": 10,\n    \"passingMarks\": 6,\n    \"submissionDate\": \"2024-09-01T23:59:59.000Z\",\n    \"courseContentLink\": \"https://example.com/course-material\",\n    \"status\": \"published\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/assessment/create",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"assessment",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjQ3MzQ4NzYsImV4cCI6MTcyNzMyNjg3Nn0.OKQVIF-JCVhR3pAWRjm2866vji80caDIPDuTojPWIVw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Basic Math Quiz abc Basic Math Quiz abc\",\n    \"type\": \"quiz\",\n    \"questionType\": \"multiple-choice\",\n    \"questions\": [\n        {\n            \"question\": \"What is 2 + 2?\",\n            \"options\": [\n                \"3\",\n                \"4\",\n                \"5\",\n                \"6\"\n            ],\n            \"correctAnswer\": \"4\",\n            \"image\": \"math_question_image.png\",\n            \"video\": \"math_explanation_video.mp4\",\n            \"marks\": 5\n        },\n        {\n            \"question\": \"What is the square root of 16?\",\n            \"options\": [\n                \"2\",\n                \"4\",\n                \"8\",\n                \"6\"\n            ],\n            \"correctAnswer\": \"4\",\n            \"image\": \"\",\n            \"video\": \"\",\n            \"marks\": 5\n        },\n        {\n            \"marks\": 5,\n            \"questionBankId\": \"66cb0aa26c1db7863751ab0a\"\n        }\n    ],\n    \"instructions\": [\n        \"You have 30 minutes to complete the quiz.\",\n        \"Each correct answer will give you 5 marks.\"\n    ],\n    \"timeLimit\": 30,\n    \"attemptsAllowed\": 1,\n    \"totalMarks\": 10,\n    \"passingMarks\": 6,\n    \"submissionDate\": \"2024-09-01T23:59:59.000Z\",\n    \"courseContentLink\": \"https://example.com/course-material\",\n    \"status\": \"published\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/assessment/update?id=66ccbff49b1edbca79f4d388",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"assessment",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66ccbff49b1edbca79f4d388"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjQ3MzQ4NzYsImV4cCI6MTcyNzMyNjg3Nn0.OKQVIF-JCVhR3pAWRjm2866vji80caDIPDuTojPWIVw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"\",\n    \"type\": \"\",\n    \"questionType\": \"\",\n    \"timeLimit\": 30,\n    \"attemptsAllowed\": 1,\n    \"totalMarks\": 10,\n    \"passingMarks\": 6,\n    \"status\": \"\",\n    \"fromDate\": \"2024-08-27\",\n    \"toDate\": \"2024-08-30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/assessment/get?page=1",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"assessment",
+								"get"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66cd5f1f54f96d607cf8f9a9",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "published",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjQ3MzQ4NzYsImV4cCI6MTcyNzMyNjg3Nn0.OKQVIF-JCVhR3pAWRjm2866vji80caDIPDuTojPWIVw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ids\": [\"66ccbff49b1edbca79f4d388\", \"66ccc0519b1edbca79f4d38d\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/assessment/published",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"assessment",
+								"published"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "softDelete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjQ3MzQ4NzYsImV4cCI6MTcyNzMyNjg3Nn0.OKQVIF-JCVhR3pAWRjm2866vji80caDIPDuTojPWIVw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:7000/api/assessment/softDelete?id=66ccbff49b1edbca79f4d388",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"assessment",
+								"softDelete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66ccbff49b1edbca79f4d388"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjQ3MzQ4NzYsImV4cCI6MTcyNzMyNjg3Nn0.OKQVIF-JCVhR3pAWRjm2866vji80caDIPDuTojPWIVw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ids\": [\n        \"66ccbff49b1edbca79f4d388\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/assessment/restore",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"assessment",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hardDelete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjQ3MzQ4NzYsImV4cCI6MTcyNzMyNjg3Nn0.OKQVIF-JCVhR3pAWRjm2866vji80caDIPDuTojPWIVw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ids\": [\n        \"66ccbff49b1edbca79f4d388\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/assessment/hardDelete",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"assessment",
+								"hardDelete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "student",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNhZGI5OThhOTM5MDkxYTMwZDhiZDYiLCJpYXQiOjE3MjQ3Mzk2MjEsImV4cCI6MTcyNzMzMTYyMX0.M_9fYYqG44PSzu4_oM6UMVV5TtLb5zQPv3D484T_RYE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"\",\n    \"type\": \"\",\n    \"questionType\": \"\",\n    \"publishedDate\": \"\",\n    \"submissionDate\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7001/api/student/assessment/get?page=1",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"student",
+								"assessment",
+								"get"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNhZGI5OThhOTM5MDkxYTMwZDhiZDYiLCJpYXQiOjE3MjQ3Mzk2MjEsImV4cCI6MTcyNzMzMTYyMX0.M_9fYYqG44PSzu4_oM6UMVV5TtLb5zQPv3D484T_RYE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:7001/api/student/assessment/getById?id=66ccc0519b1edbca79f4d38d",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"student",
+								"assessment",
+								"getById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66ccc0519b1edbca79f4d38d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "start",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNhZGI5OThhOTM5MDkxYTMwZDhiZDYiLCJpYXQiOjE3MjQ3Mzk2MjEsImV4cCI6MTcyNzMzMTYyMX0.M_9fYYqG44PSzu4_oM6UMVV5TtLb5zQPv3D484T_RYE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:7001/api/student/assessment/start?id=66cd5f1f54f96d607cf8f9a9",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"student",
+								"assessment",
+								"start"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66cd5f1f54f96d607cf8f9a9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "submit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNhZGI5OThhOTM5MDkxYTMwZDhiZDYiLCJpYXQiOjE3MjQ3Mzk2MjEsImV4cCI6MTcyNzMzMTYyMX0.M_9fYYqG44PSzu4_oM6UMVV5TtLb5zQPv3D484T_RYE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"timeTaken\": 30,\n    \"answer\": [\n        {\n            \"myAnswer\": \"4\",\n            \"answerStatus\": \"attempted\",\n            \"_id\": \"66cd5f1f54f96d607cf8f9aa\"\n        },\n        {\n            \"myAnswer\": \"\",\n            \"answerStatus\": \"notAttempted\",\n            \"_id\": \"66cd5f1f54f96d607cf8f9ab\"\n        },\n        {\n            \"myAnswer\": \"100°C\",\n            \"answerStatus\": \"attempted\",\n            \"_id\": \"66cd5f1f54f96d607cf8f9ac\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7001/api/student/assessment/submit?id=66cd5f1f54f96d607cf8f9a9",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"student",
+								"assessment",
+								"submit"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66cd5f1f54f96d607cf8f9a9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewReport",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNhZGI5OThhOTM5MDkxYTMwZDhiZDYiLCJpYXQiOjE3MjQ3Mzk2MjEsImV4cCI6MTcyNzMzMTYyMX0.M_9fYYqG44PSzu4_oM6UMVV5TtLb5zQPv3D484T_RYE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7001/api/student/assessment/viewReport?id=66cd5f1f54f96d607cf8f9a9",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"student",
+								"assessment",
+								"viewReport"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66cd5f1f54f96d607cf8f9a9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "downloadReportInPdf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNhZGI5OThhOTM5MDkxYTMwZDhiZDYiLCJpYXQiOjE3MjQ3Mzk2MjEsImV4cCI6MTcyNzMzMTYyMX0.M_9fYYqG44PSzu4_oM6UMVV5TtLb5zQPv3D484T_RYE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7001/api/student/assessment/downloadReportInPdf?id=66cd5f1f54f96d607cf8f9a9",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"student",
+								"assessment",
+								"downloadReportInPdf"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66cd5f1f54f96d607cf8f9a9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"emailOrPhone\": \"8888888888\",\n    \"password\": \"Password@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reviewAndReport",
+			"item": [
+				{
+					"name": "allAssessment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjUwNjA1MzEsImV4cCI6MTcyNzY1MjUzMX0.Ocr37IyFhdpF0FuR90guhWEPSUWDjQ2T993gzO1qWaU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/reviewAndReport/allAssessment",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"reviewAndReport",
+								"allAssessment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allSubmission",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjUwNjA1MzEsImV4cCI6MTcyNzY1MjUzMX0.Ocr37IyFhdpF0FuR90guhWEPSUWDjQ2T993gzO1qWaU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/reviewAndReport/allSubmission?id=66cd5f1f54f96d607cf8f9a9",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"reviewAndReport",
+								"allSubmission"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66cd5f1f54f96d607cf8f9a9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "studentReport",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjUwNjA1MzEsImV4cCI6MTcyNzY1MjUzMX0.Ocr37IyFhdpF0FuR90guhWEPSUWDjQ2T993gzO1qWaU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/reviewAndReport/studentReport?id=66d26803ddfadf2fcd5975ac",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"reviewAndReport",
+								"studentReport"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66d26803ddfadf2fcd5975ac"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkAssessment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjUwNjA1MzEsImV4cCI6MTcyNzY1MjUzMX0.Ocr37IyFhdpF0FuR90guhWEPSUWDjQ2T993gzO1qWaU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"answer\": [\r\n        {\r\n            \"correctAnswer\": \"4\",\r\n            \"status\": \"correct\",\r\n            \"obtainedPerQueMarks\": 5,\r\n            \"grade\": \"A\",\r\n            \"_id\": \"66cd5f1f54f96d607cf8f9aa\",\r\n            \"feedback\": \"very good\"\r\n        },\r\n        {\r\n            \"correctAnswer\": \"4\",\r\n            \"status\": \"notAttempted\",\r\n            \"obtainedPerQueMarks\": 0,\r\n            \"grade\": \"F\",\r\n            \"_id\": \"66cd5f1f54f96d607cf8f9ab\",\r\n            \"feedback\": \"very good\"\r\n        },\r\n        {\r\n            \"correctAnswer\": \"100°C\",\r\n            \"status\": \"correct\",\r\n            \"obtainedPerQueMarks\": 5,\r\n            \"grade\": \"A\",\r\n            \"_id\": \"66cd5f1f54f96d607cf8f9ac\",\r\n            \"feedback\": \"very good\"\r\n        }\r\n    ],\r\n    \"obtainedMarks\": 10,\r\n    \"feedback\": \"very good\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/reviewAndReport/checkAssessment?id=66d26803ddfadf2fcd5975ac&attemptsIndex=1",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"reviewAndReport",
+								"checkAssessment"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66d26803ddfadf2fcd5975ac"
+								},
+								{
+									"key": "attemptsIndex",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "downloadAllReport",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjUwNjA1MzEsImV4cCI6MTcyNzY1MjUzMX0.Ocr37IyFhdpF0FuR90guhWEPSUWDjQ2T993gzO1qWaU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/reviewAndReport/downloadAllReport?id=66cd5f1f54f96d607cf8f9a9",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"reviewAndReport",
+								"downloadAllReport"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "66cd5f1f54f96d607cf8f9a9"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "upload",
+			"item": [
+				{
+					"name": "uploadImage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjUwNjA1MzEsImV4cCI6MTcyNzY1MjUzMX0.Ocr37IyFhdpF0FuR90guhWEPSUWDjQ2T993gzO1qWaU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/rraj3/OneDrive/Desktop/priyanka_kumari/image/download.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:7000/api/upload/uploadImage",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"upload",
+								"uploadImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "openFile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNiMDk4Y2U5MjQwMjU5OTlhZjMyMTgiLCJpYXQiOjE3MjUwNjA1MzEsImV4cCI6MTcyNzY1MjUzMX0.Ocr37IyFhdpF0FuR90guhWEPSUWDjQ2T993gzO1qWaU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:7000/api/upload/openFile/66d286ef0181af9e38771b25",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"upload",
+								"openFile",
+								"66d286ef0181af9e38771b25"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
