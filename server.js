@@ -2,9 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const http = require("http");
 const bodyParser = require("body-parser");
-const { env } = require("./environment/environment");
-const routes = require("./route");
-const mongoose = require("./app/db/mongoose");
+const { env } = require("./src/app/modules/teacher/environment/environment");
+const teacherRoutes = require("./src/app/modules/teacher/route");
+const studentRoutes = require("./src/app/modules/student/route");
+const mongoose = require("./src/app/modules/teacher/app/db/mongoose");
 const port = process.env.PORT || 3000;
 const app = express();
 const server = http.createServer(app);
@@ -19,14 +20,18 @@ app.use(
 
 app.get("/", (req, res) => {
   try {
-    return res.status(200).send("teacher server is running");
+    return res.status(200).send("server is running");
   } catch (error) {
     return res.status(500).send(error.message);
   }
 });
 
 //Mapping all modules path and path-handler
-routes.map((route) => {
+teacherRoutes.map((route) => {
+  app.use(route.path, route.handler);
+});
+
+studentRoutes.map((route) => {
   app.use(route.path, route.handler);
 });
 
